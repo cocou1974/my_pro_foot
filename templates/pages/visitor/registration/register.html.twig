@@ -49,7 +49,7 @@
                  <div class="col-lg-7 text-center"> 
                   <img src="{{asset('images/visitor/registration/Inscrivez-vous-pour-lire-des-articles-sur-le-football.png')}}" class="img-fluid" >  
                 </div> 
-                <div class="col-lg-5"> 
+                <div class="col-lg-5 d-flex flex-column justify-content-center align-items-center"> 
 
                     {% for flash_error in app.flashes('verify_email_error')  %}
                         <div class="alert alert-danger" role="alert">{{flash_error}}</div>
@@ -124,67 +124,17 @@
                             </div>
                             
                          </div> 
-                         {#<div class="mb-3">#}
-                            <input formnovalidate type="submit" class=" btn btn-primary shadow" value="S'inscrire">
+                         <div class="mb-3">
+                            <input formnovalidate type="submit" class="= w-100 btn btn-primary shadow" value="S'inscrire">
                         </div>
-                     {{ form_end(registrationForm) }}
-                        {#</div>
-                        <div class="mb-3">
-                            <label for="registration_form_password_first">Mot de passe <span class="text-danger">*</span></label>
-                            <div class="text-danger">{{ form_errors(registrationForm.password.first) }}</div>
-                            {{ form_widget(registrationForm.password.first, {'attr': {'class': 'form-control'}}) }}
-                            <small><em><i class="text-warning fa-solid fa-triangle-exclamation"></i> Les mots de passe doivent au moins avoir 12 caractères.</em></small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="registration_form_password_second">Confirmation du mot de passe <span class="text-danger">*</span></label>
-                                <div class="text-danger">{{ form_errors(registrationForm.password.second) }}</div>
-                            {{ form_widget(registrationForm.password.second, {'attr': {'class': 'form-control'}}) }}
-                        </div>
-                        <div class="mb-3">
-                            <div class="text-danger">{{ form_errors(registrationForm.agreeTerms) }}</div>
-                            <label for="registration_form_agreeTerms">
-                                {{form_widget(registrationForm.agreeTerms)}} 
-                                Veuillez accepter <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#">les conditions générales d'utilisation.</a>
-                            </label>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-scrollable">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Les conditions générales d'utilisation</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>
-                                                Qu'est-ce que le Lorem Ipsum? Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
-                                            </p>
-                                            <p>
-                                                Pourquoi l'utiliser? On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).
-                                            </p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <input formnovalidate type="submit" class="w-100 btn btn-primary shadow" value="S'inscrire">
-                        </div>
-                    {{ form_end(registrationForm) }}
-
-                    <div class="text-center mt-3">
-                        <p>Vous êtes déjà inscrit? <a href="{{path('visitor_authentication_login')}}">Connectez-vous</a></p>
-                        <p><a href="{{path('visitor_welcome_index')}}">Retour à l'accueil</a></p>
+                            {{ form_end(registrationForm) }}
+                        
+                     <div class="text-center mt-3">
+                        <p>Vous avez déjà un compte ? <a href="{{path('visitor_authentication_login')}}">Connectez-vous</a></p>
+                        <p><a href="{{path('visitor_welcome_index')}}">Retour à l'acceuil</a></p>
                     </div>
-                </div>
-            </div>
-        </div>#}
-
-
-                 </div> 
+                </div> 
              </div> 
          </main> 
 
@@ -199,7 +149,10 @@
  
 
         {# Le script de Bootstrap 5 #}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+        crossorigin="anonymous"></script>
+        
     </body>
 </html>
  

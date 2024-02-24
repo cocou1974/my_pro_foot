@@ -31,6 +31,11 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
 
+        // Redirection user inscrit vers la page welcome
+        if ($this->getUser()) {
+            return $this->redirectToRoute('visitor_welcome_index');
+        }
+
         // if ($this->getUser()) 
         // {
             // return $this->redirectToRoute('visitor_welcome_index');
@@ -118,9 +123,9 @@ class RegistrationController extends AbstractController
 
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         // Toutes opérations avec succès
-        $this->addFlash('success', "L'email a bien été confirmé! Vous pouvez vous connecter!");
+        $this->addFlash('success', "Email a bien été confirmé! Vous pouvez vous connecter!");
 
-         return $this->redirectToRoute('visitor_welcome_index');
-        // return $this->redirectToRoute('visitor_authentication_login');
+         //return $this->redirectToRoute('visitor_welcome_index');
+         return $this->redirectToRoute('visitor_authentication_login');
     }
 }
