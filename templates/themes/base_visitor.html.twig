@@ -69,9 +69,23 @@
                     <ul class="navbar-nav ms-auto">
 
                         {# Condition: User connecté n'a qu'à deconnecter ou s'inscrire #}
+                        {# Admin possède role user.Chaque role, sa direction #}
                         {% if app.user %}
+                                {% if is_granted('ROLE_ADMIN')%}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{path('admin_home_index')}}">Espace admin</a>
+                                </li
+                                {% endif %}
+
+                                {% if is_granted('ROLE_USER')%}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{path('user_home_index')}}">Espace user</a>
+                                </li
+                                {% endif %}
+                                    
+                                
                             <li class="nav-item">
-                                 <a class="nav-link" href="{{path('app_logout')}}">Déonnexion</a>
+                                 <a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
                             </li>
 
                         {% else %}
