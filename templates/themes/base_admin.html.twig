@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %} - Espace d'administration - Le blog de Jean Martin</title>
     <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}{% endblock %}, Blog, Jean Martin">
+
 
     {# Favicon #}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
@@ -33,7 +35,7 @@
     {% block dataTables %}{% endblock %}
 
     {# The text editor #}
-    {% block tinyMCE %}{% endblock %}
+    {# {% block tinyMCE %}{% endblock %} #}
 
     {# Beautiful replacement for select boxes #}
     {% block select2 %}{% endblock %}
@@ -128,12 +130,13 @@
                                     Les catégories
                                 </a>
                             </li> 
-                            {# <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 text-dark" href="{{path('admin_post_index')}}">
+                             <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2 text-dark" href="{{path
+                                ('admin_post_index')}}">
                                     <i class="fa-solid fa-house"></i>
                                     Les articles
                                 </a>
-                            </li> #}
+                            </li> 
                         </ul>
 
                         <hr class="my-3">
