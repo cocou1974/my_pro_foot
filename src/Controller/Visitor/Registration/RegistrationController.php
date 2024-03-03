@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
 use App\Security\EmailVerifier;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -56,6 +57,9 @@ class RegistrationController extends AbstractController
             // je vais encoder le mot de passe, initialiser
             $passwordHashed = $userPasswordHasher->hashPassword($user, $form->get('password')->getData());
             $user->setPassword($passwordHashed);
+
+            // $user->setCreatedAt(new DateTimeImmutable());
+            // $user->setUpdatedAt(new DateTimeImmutable());
 
             // $user->setIsVerified(false);
 
@@ -120,6 +124,8 @@ class RegistrationController extends AbstractController
 
             return $this->redirectToRoute('visitor_registration_register');
         }
+
+        // $user->setVerifiedAt(new DateTimeImmutable());
 
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         // Toutes opérations avec succès

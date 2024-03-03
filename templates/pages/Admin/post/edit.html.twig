@@ -43,7 +43,7 @@
                     <div class="mb-3">
                      <label for="post_form_title">Le titre</label>
                          <div class="text-danger">{{form_errors(form.title)}}</div> 
-                    {{form_widget(form.title, {"attr": {"class": "form-control", "autofocus": "autofocus"}})}}
+                    {{form_widget(form.title, {"attr": {"class": "form-control", "autofocus":"autofocus"}})}}
                     
                     
                     </div>
@@ -93,7 +93,7 @@
                         {{form_widget(form.content, {"attr": {"class": "form-control","rows": "10"}})}}
                     </div>
                     <div>
-                        <input formnovalidate type="submit" class="btn btn-primary shadow" value="sauvegarder">
+                        <input formnovalidate type="submit" class="btn btn-primary shadow" value="Sauvegarder">
                     </div>
                 {{form_end(form)}}
             

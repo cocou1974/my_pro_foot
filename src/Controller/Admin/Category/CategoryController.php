@@ -5,6 +5,7 @@ namespace App\Controller\Admin\Category;
 use App\Entity\Category;
 use App\Form\CategoryFormType;
 use App\Repository\CategoryRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,6 +39,9 @@ class CategoryController extends AbstractController
 
         if ($form->isSubmitted()&& $form->isValid())
         {
+
+            $category->setCreatedAt(new DateTimeImmutable());
+
             $em->persist($category);
             $em->flush();
 
@@ -64,6 +68,9 @@ class CategoryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
+
+            $category->setUpdatedAt(new DateTimeImmutable());
+
             $em->persist($category);
             $em->flush();
 
@@ -83,6 +90,7 @@ class CategoryController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete_category_'.$category->getId(), $request->request->get('csrf_token')))
         {
+
             $em->remove($category);
             $em->flush();
 
