@@ -3,6 +3,7 @@
 namespace App\Controller\Admin\Tag;
 
 use App\Entity\Tag;
+use DateTimeImmutable;
 use App\Form\TagFormType;
 use App\Repository\TagRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -37,6 +38,7 @@ class TagController extends AbstractController
 
         if ( $form->isSubmitted() && $form->isValid())
         {
+           $tag->setCreatedAt(new DateTimeImmutable());
             $em->persist($tag);
             $em->flush();
 
@@ -62,6 +64,8 @@ class TagController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
+           $tag->setUpdatedAt(new DateTimeImmutable());
+
             $em->persist($tag);
             $em->flush();
 

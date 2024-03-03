@@ -49,6 +49,7 @@ class PostController extends AbstractController
            $admin = $this->getUser();
 
            $post->setUser($admin);
+           $post->setCreatedAt(new DateTimeImmutable());
            $post->setIsPublished(false);
 
 
@@ -77,7 +78,9 @@ class PostController extends AbstractController
             if ( false === $post->isIsPublished())
             {
                 $post->setIsPublished(true);
+                // $post->setUpdatedAt(new DateTimeImmutable());
                 $post->setPublishedAt(new DateTimeImmutable());
+
 
                 $this->addFlash('success', "L'article a été publié");
 
@@ -98,7 +101,7 @@ class PostController extends AbstractController
     }
 
 
-    #[Route('/admin/post/{id}/show', name: 'admin_post_show',methods:['GET'])]
+    #[Route('/admin/post/{id}/show', name: 'admin_post_show', methods:['GET'])]
     public function show(Post $post): Response
     {
         return $this->render("pages/admin/post/show.html.twig",[
@@ -124,6 +127,7 @@ class PostController extends AbstractController
            $admin = $this->getUser();
 
            $post->setUser($admin);
+           $post->setUpdatedAt(new DateTimeImmutable());
            $post->setIsPublished(false);
 
            $em->persist($post);

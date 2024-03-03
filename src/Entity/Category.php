@@ -89,12 +89,12 @@ class Category
 
 
 
-    // public function setCreatedAt(?\DateTimeImmutable $createdAt): static
-    // {
-        // $this->createdAt = $createdAt;
+    public function setCreatedAt(?\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
 
-        // return $this;
-    // }
+        return $this;
+    }
 
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
@@ -103,12 +103,12 @@ class Category
 
     
 
-    // public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
-    // {
-        // $this->updatedAt = $updatedAt;
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
 
-        // return $this;
-    // }
+        return $this;
+    }
 
     /**
      * @return Collection<int, Post>
