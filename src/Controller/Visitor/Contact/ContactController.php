@@ -6,6 +6,7 @@ use DateTimeImmutable;
 use App\Entity\Contact;
 use App\Form\ContactFormType;
 use App\Service\SendEmailService;
+use App\Repository\SettingRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'visitor_contact_create' , methods:['GET', 'POST'])]
-    public function create(Request $request, EntityManagerInterface $em , SendEmailService  $sendEmailService): Response
+    public function create(
+        Request $request, 
+        EntityManagerInterface $em ,
+        SendEmailService  $sendEmailService,
+        SettingRepository $settingRepository
+        ): Response
     {
         $contact = new Contact();
 
@@ -54,7 +60,8 @@ class ContactController extends AbstractController
 
 
             return $this->render('pages/visitor/contact/create.html.twig',[
-                "form" => $form->createView()
+                "form" => $form->createView(),
+                "setting" => $settingRepository->find(1)
         ]);
     
         
