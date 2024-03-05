@@ -50,6 +50,8 @@ class PostController extends AbstractController
 
            $post->setUser($admin);
            $post->setCreatedAt(new DateTimeImmutable());
+           $post->setUpdatedAt(new DateTimeImmutable());
+
            $post->setIsPublished(false);
 
 

@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 //Doctrine. Timestampable.
 
-use Gedmo\Mapping\Annotation as Gedmo;
+// use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email cet email existe déjà')]
@@ -89,15 +89,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
 
-     #[Gedmo\Timestampable(on: 'create')]
+    //  #[Gedmo\Timestampable(on: 'create')]
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $createdAt = null;
 
-    #[ORM\Column(nullable: true)]
+    // #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $verifiedAt = null;
     
     
-    #[Gedmo\Timestampable(on: 'update')]
+    // #[Gedmo\Timestampable(on: 'update')]
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
@@ -184,16 +184,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    
     public function getFirstName(): ?string
     {
