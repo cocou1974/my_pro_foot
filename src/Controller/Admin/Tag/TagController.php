@@ -39,6 +39,8 @@ class TagController extends AbstractController
         if ( $form->isSubmitted() && $form->isValid())
         {
            $tag->setCreatedAt(new DateTimeImmutable());
+           $tag->setUpdatedAt(new DateTimeImmutable());
+
             $em->persist($tag);
             $em->flush();
 

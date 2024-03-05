@@ -2,12 +2,13 @@
 
 namespace App\Controller\Admin\Contact;
 
+use DateTimeImmutable;
 use App\Entity\Contact;
 use Doctrine\ORM\Mapping\Entity;
 use App\Repository\ContactRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,6 +32,8 @@ class ContactController extends AbstractController
 
         if ($this->isCsrfTokenValid('delete_contact_'.$contact->getId(), $request->request->get('csrf_token')))
         {
+            $contact->setCreatedAt(new DateTimeImmutable());
+            
 
             $em->remove($contact);
             $em->flush();

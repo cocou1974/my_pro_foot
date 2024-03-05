@@ -70,6 +70,8 @@ class CategoryController extends AbstractController
         {
 
             $category->setUpdatedAt(new DateTimeImmutable());
+            $category->setUpdatedAt(new DateTimeImmutable());
+
 
             $em->persist($category);
             $em->flush();
