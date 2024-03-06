@@ -42,7 +42,7 @@
         
     {% endfor %}
 
-    {# {% include 'components/alert.html.twig' %}  #}
+     {# {% include 'components/alert.html.twig' %}   #}
 
     
     <div class="table-responsive">
@@ -99,6 +99,8 @@
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="csrf_token" value="{{csrf_token('delete_user_'~user.id)}}">
 
+                                     {# <input type="submit" class="m-2 btn btn-danger" value="Supprimer votre compte"> #}
+                                      
                                 </form> 
                         {% endif %}
                         
