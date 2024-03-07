@@ -26,11 +26,28 @@ class UserController extends AbstractController
         ]);
     }
     //    obligatoirement un nombre entier
-    #[Route('/admin/user/{id<\d+>}/edit/roles ', name: 'admin_user_edit_roles', methods:['GET',])]
-    public function editRoles(User $user): Response
+    #[Route('/admin/user/{id<\d+>}/edit/roles ', name: 'admin_user_edit_roles', methods:['GET','PUT'])]
+    public function editRoles(User $user, Request $request,EntityManagerInterface $em): Response
     {
-       $form = $this->createForm(EditUserRolesFormType::class, $user);
+        $form = $this->createForm(EditUserRolesFormType::class, $user,[
+            "method" => "PUT"
+        ]);
+            
 
+        // Il manque le code du traitement du formulaire
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $em->persist($user);
+            $em->flush();
+
+            $this->addFlash("success", "Les rôles de {$user->getFirstName()} {$user->getLastName()} ont été
+             modifés avec succès.");
+
+             return $this->redirectToRoute("admin_user_index");
+        }
         return $this->render('pages/admin/user/edit_roles.html.twig',[
             'form' => $form->createView()
         ]);
