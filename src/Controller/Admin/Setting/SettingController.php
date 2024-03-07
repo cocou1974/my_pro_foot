@@ -18,7 +18,7 @@ class SettingController extends AbstractController
     #[Route('/admin/setting', name: 'admin_setting_index', methods: ['GET'])]
     public function index(SettingRepository $settingRepository): Response
     {
-        $setting = $settingRepository->find(1);
+        $setting = $settingRepository->find(8);
 
         return $this->render('pages/admin/setting/index.html.twig', [
             'setting' => $setting,

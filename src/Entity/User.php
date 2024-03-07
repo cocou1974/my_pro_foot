@@ -30,7 +30,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         maxMessage: 'Le prénom ne doit pas dépasser{{ limit }} caractère.',
     )]
      #[Assert\Regex(
-        pattern: "/^[0-9a-zA-Z-_'áàâäãåçéèêëíìîïñóòôöõúùûüýÿœæÁÀÂÄÃÅCÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]+$/i",
+        pattern: "/^[0-9a-zA-Z-_' áàâäãåçéèêëíìîïñóòôöõúùûüýÿœæÁÀÂÄÃÅCÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]+$/i",
         match: true,
         message: "Le prénom doit contenir uniquement des lettres, des chiffres le tiret du milieu de l\'undesscore"
     )]
@@ -148,7 +148,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_ROLE';
+        $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
