@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-lg-6">
                 
-                {% include "components/alerte.html.twig" %} 
+                {% include "components/alert.html.twig" %} 
 
                     {{form_start(form)}}
                         <div class="row">
@@ -56,14 +56,14 @@
                     </div>
                     <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center my-5">
                         <div class="text-center text-md-start jd-contact-center">
-                        <p><i class="fa-solid fa-envelope"></i> : ancien-footballeur@gmail.com</p> 
+                        <p><i class="fa-solid fa-envelope"></i> : {{setting.email}}</p> 
                         {# ancien-footballeur@gmail.com  #}
                         {# {{setting.email}} #}
-                        {# {% if setting.phone is not empty %} #}
-                        <p><i class="fa-solid fa-phone"></i> : 06 06 06 06 06</p>
+                         {% if setting.phone is not empty %} 
+                        <p><i class="fa-solid fa-phone"></i> : {{setting.phone}}</p>
                         {# {{setting.phone}} #}
                         {# 06 06 06 06 06 #}
-                         {# {% endif %} #}
+                          {% endif %} 
                         
                     </div>
                     <div>

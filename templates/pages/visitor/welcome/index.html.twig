@@ -2,10 +2,100 @@
 
 {% block title %}Acceuil{% endblock %}
 
-{% block description %}hello! C'est Jean Martin. découvrez des articles pertinents du football et le bien être  {% endblock %}
+{% block description %}hello! C'est Jean Martin! Découvrez des articles pertinents du football et le bien être  {% endblock %}
 
 {% block main %}
     <main>
-        <h1>Acceuil</h1>
+        <header>
+            <div class="container text-center">
+                <div class="row">
+                     <div class="col-md-6 col-lg-5 order-md-2">
+                    <img src="{{asset('images/visitor/welcome/football/football_hero.png')}}" class="img-fluid" >
+                </div>
+                <div class="col-md-6 col-lg-7 order-md-1 mt-5 d-flex flex-column justify-content-evenly align-items-center">
+                    <div>
+                        <h1>
+                            Bienvenue sur mon blog
+                        </h1>
+                    </div>
+                    <div>
+                        <p>
+                            Je m'appelle Jean Martin.
+                        </p>
+                        <p>
+                            Permettez-moi de vous faire découvrir les clés de football et de bien-être physique.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="{{path('visitor_site_index')}}" class ="btn btn-lg btn-primary">Liste des articles</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="about-me-section">
+            <h1 class="text-center my-3 display-5">Qui suis-je ?</h1>
+
+            <div class="container my-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="{{asset('images/visitor/welcome/about_me/fcbabout_me.png')}}" class="img-fluid">
+                    </div>
+                    <div class="col-md-6 d-flex flex-column justify-content-evenly align-items-center">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        {% if posts is not empty %}
+            <section id="last-posts">
+                <h1 class="text-center my-3 display-5">Mes derniers articles</h1>
+
+                <div class="container mt-5">
+                <div class="row">
+                {% for post in posts %}
+                    <div class="col-md-4">
+                    <div class="card shadow">
+                        {# <img src="..." class="card-img-top" alt="..."> #}
+                        <div class="card-body">
+                            <h5 class="card-title"> {{post.title}}</h5>
+                            <p class="card-text">{{post.description}}</p>
+                            <p>
+                                <small>Publié {{post.publishedAt|ago}}</small>
+                            </p>
+                             <p>
+                                <a href="#" class="btn btn-primary">Lire cet article</a>
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                </div>
+            </section>
+        {% endif %}
+
+
+        <section class="my-3 py-5 bg-light text-center">
+        <a 
+            href="{{path('visitor_contact_create')}}"
+            class="btn btn-lg btn-primary" >
+            {# data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000" #}
+       
+                Contactez-moi
+        </a>
+        </section>
+            
     </main>
 {% endblock %}
