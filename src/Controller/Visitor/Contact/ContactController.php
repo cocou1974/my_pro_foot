@@ -61,7 +61,7 @@ class ContactController extends AbstractController
 
             return $this->render('pages/visitor/contact/create.html.twig',[
                 "form" => $form->createView(),
-                "setting" => $settingRepository->find(1)
+                "setting" => $settingRepository->find(8)
         ]);
     
         

@@ -118,6 +118,27 @@ class Category
         return $this->posts;
     }
 
+
+    /**
+     * @return array
+     */
+    public function getPublishedPosts(): array
+    {
+        $posts = $this->posts->toArray();
+
+        $postsPublished = [];
+
+        foreach ($posts as $post)
+        {
+            if ( $post->isIspublished() )
+            {
+                $postsPublished [] = $post;
+            }
+        }
+
+        return $postsPublished;
+    }
+
     public function addPost(Post $post): static
     {
         if (!$this->posts->contains($post)) {

@@ -114,6 +114,27 @@ class Tag
     }
 
     /**
+     * @return array
+     */
+    public function getPublishedPosts(): array
+    {
+        $posts = $this->posts->toArray();
+
+        $postsPublished = [];
+
+        foreach ($posts as $post)
+        {
+            if ( $post->isIspublished() )
+            {
+                $postsPublished [] = $post;
+            }
+        }
+
+        return $postsPublished;
+    }
+
+
+    /**
      * @return Collection<int, Post>
      */
     public function getPosts(): Collection
