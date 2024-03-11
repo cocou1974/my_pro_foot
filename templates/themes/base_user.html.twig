@@ -55,11 +55,9 @@
                 <a class="nav-link" href="{{path('user_profile_index')}}">Mon profil</a>
                 </li>
                 {% if is_granted('ROLE_ADMIN') %}
-                <li class="nav-item">
-                <a class="nav-link" href="{{path('admin_home_index')}}">Retour admin</a>
-                
-                </li>
-                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{path('admin_home_index')}}">Retour admin</a>
+                    </li>
                 {% endif %}
 
                 <li class="nav-item">
