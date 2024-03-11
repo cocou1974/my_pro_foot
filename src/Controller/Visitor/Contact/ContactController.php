@@ -53,7 +53,8 @@ class ContactController extends AbstractController
                     
             ]);
             
-            $this->addFlash("success", "Votre message a bien été envoyé. Nous vous recontacterons dans les plus brefs delais");
+            $this->addFlash("success", "Votre message a bien été envoyé. 
+            Nous vous recontacterons dans les plus brefs delais");
         
             return $this->redirectToRoute('visitor_contact_create');
         }

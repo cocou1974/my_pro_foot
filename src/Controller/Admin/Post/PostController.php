@@ -28,7 +28,8 @@ class PostController extends AbstractController
     }
 
     #[Route('/admin/post/create', name: 'admin_post_create',methods:['GET', 'POST'])]
-    public function create(Request $request, EntityManagerInterface $em, CategoryRepository $categoryRepository): Response
+    public function create(Request $request, EntityManagerInterface $em, 
+    CategoryRepository $categoryRepository): Response
     {
 
         if (count($categoryRepository->findAll())<= 0)
@@ -53,8 +54,6 @@ class PostController extends AbstractController
            $post->setUpdatedAt(new DateTimeImmutable());
 
            $post->setIsPublished(false);
-
-
 
             $em->persist($post);
             $em->flush();
