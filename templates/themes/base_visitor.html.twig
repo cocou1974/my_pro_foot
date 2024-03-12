@@ -105,19 +105,19 @@
                         {% if app.user %}
                                 {% if is_granted('ROLE_ADMIN')%}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{path('admin_home_index')}}">Espace admin</a>
+                                    <a class="my-2 mx-lg-2 btn btn-outline-primary shadow" href="{{path('admin_home_index')}}">Espace admin</a>
                                 </li
                                 {% endif %}
 
                                 {% if is_granted('ROLE_USER')%}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{path('user_home_index')}}">Espace user</a>
+                                    <a class="my-2 mx-lg-2 btn btn-outline-primary shadow" href="{{path('user_home_index')}}">Espace user</a>
                                 </li
                                 {% endif %}
                                     
                                 
                             <li class="nav-item">
-                                 <a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
+                                 <a class="my-2 mx-lg-2 btn btn-primary shadow" href="{{path('app_logout')}}">Déconnexion</a>
                             </li>
 
                         {% else %}
@@ -165,8 +165,43 @@
                     <div class="col-md-4">
                         <p class="fs-5">DWWM</p>  
                         <hr>  
-                        <p class="cursor-pointer"><a href="#"
+                        <p class="cursor-pointer"><a data-bs-toggle="modal" data-bs-target="#agreeTermsModal" href="#"
                         class="text-decoration-none text-white">Les conditions générales d'utilisation</a></p>
+
+
+                        <!-- Modal -->
+                            <div class=" text-dark modal fade" id="agreeTermsModal" data-bs-backdrop="static" 
+                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" 
+                            aria-hidden="true">
+                                 <div class=" modal-dialog modal-dialog-scrollable">
+                                     <div class="modal-content">
+                                         <div class="modal-header">
+                                             <h1 class="modal-title fs-5" id="exampleModalLabel">Les conditions 
+                                             générales d'utilisation</h1>
+                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+                                                    et dolore magna aliqua. Ut enim ad minim 
+                                                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                                    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                                    magna aliqua. Vitae congue mauris rhoncus aenean vel. Ultrices dui sapien eget mi proin. Netus et malesuada fames 
+                                                    ac turpis egestas maecenas. Egestas sed tempus urna et pharetra. Purus sit amet volutpat consequat mauris nunc congue nisi. 
+                                                    Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Sagittis orci a scelerisque purus semper. Venenatis lectus magna 
+                                                    fringilla urna porttitor rhoncus dolor purus non. Euismod in pellentesque massa placerat duis.
+                                                </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -180,7 +215,11 @@
         </footer #}
 
 
-        {# Le script de Bootstrap 5 #}
-        {# <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> #}
+        {# Le script de Bootstrap 5
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> #}
     </body>
 </html>
+
+
+
+
