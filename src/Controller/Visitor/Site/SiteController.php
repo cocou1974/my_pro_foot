@@ -55,14 +55,22 @@ class SiteController extends AbstractController
         CategoryRepository $categoryRepository,
         TagRepository $tagRepository,
         PostRepository $postRepository,
-        Category $category
+        Category $category,
+        PaginatorInterface $paginator,
+        Request $request
 
     ): Response
 
     {
         $categories = $categoryRepository->findAll();
         $tags       = $tagRepository->findAll();
-        $posts      =       $postRepository->filterPostsByCategory($category->getId());
+        $query      =       $postRepository->filterPostsByCategory($category->getId());
+
+        $posts = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
 
         return $this->render('pages/visitor/site/index.html.twig', [
             'categories' => $categories,
@@ -79,6 +87,8 @@ class SiteController extends AbstractController
         CategoryRepository $categoryRepository,
         TagRepository $tagRepository,
         PostRepository $postRepository,
+        PaginatorInterface $paginator,
+        Request $request,
         Tag $tag
 
     ): Response
@@ -87,7 +97,13 @@ class SiteController extends AbstractController
         
         $categories = $categoryRepository->findAll();
         $tags       = $tagRepository->findAll();
-        $posts      =       $postRepository->filterPostsByTag($tag->getId());
+        $query      =       $postRepository->filterPostsByTag($tag->getId());
+
+        $posts = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
 
         return $this->render('pages/visitor/site/index.html.twig', [
             'categories' => $categories,
